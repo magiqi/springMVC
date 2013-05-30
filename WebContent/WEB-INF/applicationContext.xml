@@ -12,6 +12,6 @@
 			</list>
 		</property>
 	</bean>
-	<import resource="hibernate.xml" />
 	<import resource="action-servlet.xml" />
+	<import resource="hibernate.xml" />
 </beans>
