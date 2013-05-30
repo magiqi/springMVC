@@ -1,15 +1,24 @@
 package com.ms.service;
 
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
-
-import com.ms.util.ApplicationContextUtil;
 
 @Service
 public class BaseService {
 
-	public void save(Object o) {
-		ApplicationContextUtil.getSession().save(o);
-		int a = 21 / 0;
-	}
+    private SessionFactory sessionFacotry;
+
+    public SessionFactory getSessionFacotry() {
+	return sessionFacotry;
+    }
+
+    public void setSessionFacotry(SessionFactory sessionFacotry) {
+	this.sessionFacotry = sessionFacotry;
+    }
+
+    public void save(Object o) {
+	sessionFacotry.openSession().save(o);
+	int a = 21 / 0;
+    }
 
 }
